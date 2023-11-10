@@ -1,333 +1,72 @@
 import phantom_tollbooth
-
+#This import allows the text from the other program phantom_tollbooth.py to be used in this one
 
 
 
 def main():
+    #this statement calls the import and the variable is assigned the entire string of the phantom_tollbooth
+    original = phantom_tollbooth.get_text()
+
+    #these statements remove spaces and symbols that appear in the original string
+    #and these commands require a new string to be made each time
+    first_text_change = original.strip()
+    second_text_change = first_text_change.translate({ord(","): None})
+    third_text_change = second_text_change.translate({ord("-"): None})
+    fourth_text_change = third_text_change.translate({ord(";"): None})
+    fifth_text_change = fourth_text_change.translate({ord("."): None})
+    sixth_text_change = fifth_text_change.translate({ord('"'): None})
+    seventh_text_change = sixth_text_change.translate({ord("?"): None})
+    final_text_change = seventh_text_change.replace("\n", "")
+
+    #these satements make every letter in the string become lowercase and converts the string into a list
+    lowercase_book =final_text_change.lower()
+    list_of_words = lowercase_book.split(" ")
     
-    book3 = phantom_tollbooth.get_text()
-    punc = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
-    book2 = book3.strip()
-    book1 = book2.translate({ord(","): None})
-    book3 = book1.translate({ord("-"): None})
-    book4 = book3.translate({ord(";"): None})
-    book5 = book4.translate({ord("."): None})
-    book6 = book5.translate({ord('"'): None})
-    book7 = book6.translate({ord("?"): None})
-   
-    book = book7.replace("\n", "")
-
-    for symbol in book:
-        if symbol in punc:
-            book.replace(symbol, "")
-
-    final_book =book.lower()
-    my_list = final_book.split(" ")
+    #this list contains all the words that need to be removed to output the correct top 50 most used words
+    removal_list =['the',"and","to","a","of","he","you","in",'"',"as","it","his","for","was",
+              "that","i","all","said","with","they","at","one","but","be","on","is","had",
+              "from","have","very","what","them","were","there","up","so","then","not","see",
+              "can","just","do","are","if","now","we","an","no","who","time","which","this",
+              "again","more","or","it's","here","when","how","i'm","my","much","way","down",
+              "like","don't","me","by","never","could","into","back","your","little","long",
+              "out","him","well","been","why","that's","where","would","only","she","know",
+              "off","their","other","too","each","right","about","even","good","must","than",
+              "many","after","get","once","make","over","three","day","look","through","any",
+              "before","great","most","always","take","another","himself","same","some","two",
+              "did","come","didn't","ever","go","place","thing","until","will","say","made",
+              "went","use","can't","old","first","last","since","","you'll","oh","still"]
     
-    for x in my_list:
-        if x == int():
-            my_list.remove(x)
-
-    while("" in my_list):
-        my_list.remove("")
-    while('the' in my_list):
-        my_list.remove('the')
-    while('and' in my_list):
-        my_list.remove("and")
-    while("to" in my_list):
-        my_list.remove("to")
-    while("a" in my_list):
-        my_list.remove("a")
-    while("of" in my_list):
-        my_list.remove("of")
-    while("he" in my_list):
-        my_list.remove("he")
-    while("you" in my_list):
-        my_list.remove("you")
-    while("in" in my_list):
-        my_list.remove("in")
-    while('"' in my_list):
-        my_list.remove('"')
-    while("as" in my_list):
-        my_list.remove("as")
-    while("it" in my_list):
-        my_list.remove("it")
-    while("his" in my_list):
-        my_list.remove("his")
-    while("for" in my_list):
-        my_list.remove("for")
-    while("was" in my_list):
-        my_list.remove("was")
-    while("that" in my_list):
-        my_list.remove("that")
-    while("i" in my_list):
-        my_list.remove("i")
-    while("all" in my_list):
-        my_list.remove("all")
-    while("said" in my_list):
-        my_list.remove("said")
-    while("with" in my_list):
-        my_list.remove("with")
-    while("they" in my_list):
-        my_list.remove("they")
-    while("at" in my_list):
-        my_list.remove("at")
-    while("one" in my_list):
-        my_list.remove("one")
-    while("but" in my_list):
-        my_list.remove("but")
-    while("be" in my_list):
-        my_list.remove("be")
-    while("on" in my_list):
-        my_list.remove("on")
-    while("is" in my_list):
-        my_list.remove("is")
-    while("had" in my_list):
-        my_list.remove("had")
-    while("from" in my_list):
-        my_list.remove("from")
-    while("have" in my_list):
-        my_list.remove("have")
-    while("very" in my_list):
-        my_list.remove("very")
-    while("what" in my_list):
-        my_list.remove("what")
-    while("them" in my_list):
-        my_list.remove("them")
-    while("were" in my_list):
-        my_list.remove("were")
-    while("there" in my_list):
-        my_list.remove("there")
-    while("up" in my_list):
-        my_list.remove("up")
-    while("so" in my_list):
-        my_list.remove("so")
-    while("then" in my_list):
-        my_list.remove("then")
-    while("not" in my_list):
-        my_list.remove("not")
-    while("see" in my_list):
-        my_list.remove("see")
-    while("can" in my_list):
-        my_list.remove("can")
-    while("just" in my_list):
-        my_list.remove("just")
-    while("do" in my_list):
-        my_list.remove("do")
-    while("are" in my_list):
-        my_list.remove("are")
-    while("if" in my_list):
-        my_list.remove("if")
-    while("now" in my_list):
-        my_list.remove("now")
-    while("we" in my_list):
-        my_list.remove("we")
-    while("an" in my_list):
-        my_list.remove("an")
-    while("no" in my_list):
-        my_list.remove("no")
-    while("who" in my_list):
-        my_list.remove("who")
-    while("time" in my_list):
-        my_list.remove("time")
-    while("which" in my_list):
-        my_list.remove("which")
-    while("this" in my_list):
-        my_list.remove("this")
-    while("again" in my_list):
-        my_list.remove("again")
-    while("more" in my_list):
-        my_list.remove("more")
-    while("or" in my_list):
-        my_list.remove("or")
-    while("it's" in my_list):
-        my_list.remove("it's")
-    while("here" in my_list):
-        my_list.remove("here")
-    while("when" in my_list):
-        my_list.remove("when")
-    while("how" in my_list):
-        my_list.remove("how")
-    while("i'm" in my_list):
-        my_list.remove("i'm")
-    while("my" in my_list):
-        my_list.remove("my")
-    while("much" in my_list):
-        my_list.remove("much")
-    while("way" in my_list):
-        my_list.remove("way")
-    while("down" in my_list):
-        my_list.remove("down")
-    while("like" in my_list):
-        my_list.remove("like")
-    while("don't" in my_list):
-        my_list.remove("don't")
-    while("me" in my_list):
-        my_list.remove("me")
-    while("by" in my_list):
-        my_list.remove("by")
-    while("never" in my_list):
-        my_list.remove("never")
-    while("could" in my_list):
-        my_list.remove("could")
-    while("into" in my_list):
-        my_list.remove("into")
-    while("back" in my_list):
-        my_list.remove("back")
-    while("your" in my_list):
-        my_list.remove("your")
-    while("little" in my_list):
-        my_list.remove("little")
-    while("long" in my_list):
-        my_list.remove("long")
-    while("out" in my_list):
-        my_list.remove("out")
-    while("him" in my_list):
-        my_list.remove("him")
-    while("well" in my_list):
-        my_list.remove("well")
-    while("been" in my_list):
-        my_list.remove("been")
-    while("why" in my_list):
-        my_list.remove("why")
-    while("that's" in my_list):
-        my_list.remove("that's")
-    while("where" in my_list):
-        my_list.remove("where")
-    while("would" in my_list):
-        my_list.remove("would")
-    while("only" in my_list):
-        my_list.remove("only")
-    while("she" in my_list):
-        my_list.remove("she")
-    while("know" in my_list):
-        my_list.remove("know")
-    while("off" in my_list):
-        my_list.remove("off")
-    while("their" in my_list):
-        my_list.remove("their")
-    while("other" in my_list):
-        my_list.remove("other")
-    while("too" in my_list):
-        my_list.remove("too")
-    while("each" in my_list):
-        my_list.remove("each")
-    while("right" in my_list):
-        my_list.remove("right")
-    while("about" in my_list):
-        my_list.remove("about")
-    while("even" in my_list):
-        my_list.remove("even")
-    while("good" in my_list):
-        my_list.remove("good")
-    while("must" in my_list):
-        my_list.remove("must")
-    while("than" in my_list):
-        my_list.remove("than")
-    while("many" in my_list):
-        my_list.remove("many")
-    while("after" in my_list):
-        my_list.remove("after")
-    while("get" in my_list):
-        my_list.remove("get")
-    while("once" in my_list):
-        my_list.remove("once")
-    while("make" in my_list):
-        my_list.remove("make")
-    while("over" in my_list):
-        my_list.remove("over")
-    while("three" in my_list):
-        my_list.remove("three")
-    while("day" in my_list):
-        my_list.remove("day")
-    while("look" in my_list):
-        my_list.remove("look")
-    while("through" in my_list):
-        my_list.remove("through")
-    while("any" in my_list):
-        my_list.remove("any")
-    while("before" in my_list):
-        my_list.remove("before")
-    while("great" in my_list):
-        my_list.remove("great")
-    while("most" in my_list):
-        my_list.remove("most")
-    while("always" in my_list):
-        my_list.remove("always")
-    while("take" in my_list):
-        my_list.remove("take")
-    while("another" in my_list):
-        my_list.remove("another")
-    while("himself" in my_list):
-        my_list.remove("himself")
-    while("same" in my_list):
-        my_list.remove("same")
-    while("some" in my_list):
-        my_list.remove("some")
-    while("two" in my_list):
-        my_list.remove("two")
-    while("did" in my_list):
-        my_list.remove("did")
-    while("come" in my_list):
-        my_list.remove("come")
-    while("didn't" in my_list):
-        my_list.remove("didn't")
-    while("ever" in my_list):
-        my_list.remove("ever")
-    while("go" in my_list):
-        my_list.remove("go")
-    while("place" in my_list):
-        my_list.remove("place")
-    while("thing" in my_list):
-        my_list.remove("thing")
-    while("until" in my_list):
-        my_list.remove("until")
-    while("will" in my_list):
-        my_list.remove("will")
-    while("say" in my_list):
-        my_list.remove("say")
-    while("made" in my_list):
-        my_list.remove("made")
-    while("went" in my_list):
-        my_list.remove("went")
-    while("use" in my_list):
-        my_list.remove("use")
-    while("can't" in my_list):
-        my_list.remove("can't")
-    while("old" in my_list):
-        my_list.remove("old")
-    while("first" in my_list):
-        my_list.remove("first")
-    while("last" in my_list):
-        my_list.remove("last")
-    while("since" in my_list):
-        my_list.remove("since")
-    while("" in my_list):
-        my_list.remove("")
-    while("you'll" in my_list):
-        my_list.remove("you'll")
-    while("oh" in my_list):
-        my_list.remove("oh")
-    while("still" in my_list):
-        my_list.remove("still")
-
-    my_list.sort()
-    my_dict = {}
-    
-
-    for word in my_list[0:]:
-        if word in my_dict:
-            my_dict[word] = my_dict[word] + 1
+    #these statements remove all the words that are in the removal_list from the list containing 
+    #all the words in the story, and places the perserved words into a new list
+    final_list = [] 
+    for i in list_of_words: 
+        if i in removal_list:
+            continue
         else:
-            my_dict[word] = 1 
+            final_list.append(i)
+    
+    #this statement organizes the list so that all the words are in alphabetical order
+    final_list.sort()
+
+    #these statements place words and the number of times they occur into a dictionary
+    dict_of_words = {}
+    for word in final_list[0:]:
+        if word in dict_of_words:
+            dict_of_words[word] = dict_of_words[word] + 1
+        else:
+            dict_of_words[word] = 1 
 
     print()
     print('The 50 most used words and how many times they are used in this story are: ' )
 
-    my_list = sorted(my_dict, key=my_dict.get, reverse=True)[:50]
-
-    for x in my_list:
-        print(x,':', my_dict[x],)
+    #this statement makes the final_list contain only the most used words 
+    final_list = sorted(dict_of_words, key=dict_of_words.get, reverse=True)[:50]
+    
+    #these statements output the most used words and the number of times they occurs in the story
+    for z in final_list:
+        print(z,':', dict_of_words[z],)
   
+    #End of Program
+
 if __name__ == '__main__':
     main()

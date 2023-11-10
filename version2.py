@@ -1,9 +1,10 @@
 import phantom_tollbooth
 from collections import Counter
 
+#this statement calls the import and the variable is assigned the entire string of the phantom_tollbooth
+original_text = phantom_tollbooth.get_text()
 
-book = phantom_tollbooth.get_text()
-
+#this list contains all the words that need to be removed to output the correct top 50 most used words
 remove_list =['the',"and","to","a","of","he","you","in",'"',"as","it","his","for","was",
               "that","i","all","said","with","they","at","one","but","be","on","is","had",
               "from","have","very","what","them","were","there","up","so","then","not","see",
@@ -17,20 +18,28 @@ remove_list =['the',"and","to","a","of","he","you","in",'"',"as","it","his","for
               "did","come","didn't","ever","go","place","thing","until","will","say","made",
               "went","use","can't","old","first","last","since","","you'll","oh","still"]
 
-book1 = book.translate({ord(","): None})
-book2 = book1.translate({ord("-"): None})
-book3 = book2.translate({ord(";"): None})
-book4 = book3.translate({ord("."): None})
-book5 = book4.translate({ord('"'): None})
-book6 = book5.translate({ord("?"): None})
+#these statements remove spaces and symbols that appear in the original string
+#and these commands require a new string to be made each time
+text_change_1 = original_text.translate({ord(","): None})
+text_change_2 = text_change_1.translate({ord("-"): None})
+text_change_3 = text_change_2.translate({ord(";"): None})
+text_change_4 = text_change_3.translate({ord("."): None})
+text_change_5 = text_change_4.translate({ord('"'): None})
+text_change_6 = text_change_5.translate({ord("?"): None})
 
-my_list = Counter(book6.lower().split())
+#this statement makes all letters lowercase, converts the string into a list, and allows the list to be counted
+list_of_words = Counter(text_change_6.lower().split())
 
+#these statements remove all the words that are in the removal_list from the list containing 
+#all the words in the story
 for word in set(remove_list):
-    del my_list[word]
+    del list_of_words[word]
 
-most_occur = my_list.most_common(50) 
+#these statements calculate the 50 most common words and outputs them
+most_occur = list_of_words.most_common(50) 
 print()
 print('The 50 most used words and how many times they are used in this story are: ')
 print() 
 print(*most_occur, sep='\n')
+
+#End of Program
