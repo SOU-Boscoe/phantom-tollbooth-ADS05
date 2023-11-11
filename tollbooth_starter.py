@@ -21,6 +21,12 @@ def main():
     #these satements make every letter in the string become lowercase and converts the string into a list
     lowercase_book =final_text_change.lower()
     list_of_words = lowercase_book.split(" ")
+
+    #this commented out code below is how I originally planned to remove the articles, conjunctions and pronouns
+    #but I eventually realized it would be more efficient to make a list of the words that need to be removed
+    #and make a looping statement to remove those words instead of doing it manually
+    #while("the" in my_list):
+    #    my_list.remove("the")
     
     #this list contains all the words that need to be removed to output the correct top 50 most used words
     removal_list =['the',"and","to","a","of","he","you","in",'"',"as","it","his","for","was",
