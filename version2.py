@@ -35,7 +35,7 @@ list_of_words = Counter(text_change_6.lower().split())
 for word in set(remove_list):
     del list_of_words[word]
 
-#these statements calculate the 50 most common words and outputs them
+#these statements calculate the 50 most common words and outputs them to the terminal
 most_occur = list_of_words.most_common(50) 
 print()
 print('The 50 most used words and how many times they are used in this story are: ')

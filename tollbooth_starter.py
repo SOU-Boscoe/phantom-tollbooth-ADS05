@@ -54,7 +54,7 @@ def main():
     #this statement organizes the list so that all the words are in alphabetical order
     final_list.sort()
 
-    #these statements place words and the number of times they occur into a dictionary
+    #these statements place the words and the number of times they occur into a dictionary
     dict_of_words = {}
     for word in final_list[0:]:
         if word in dict_of_words:
