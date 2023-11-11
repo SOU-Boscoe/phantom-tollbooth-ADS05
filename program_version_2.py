@@ -1,7 +1,7 @@
 import phantom_tollbooth
 from collections import Counter
 
-#this statement calls the import and the variable is assigned the entire string of the phantom_tollbooth
+#this statement calls the import and then the variable is assigned the entire string of the phantom_tollbooth
 original_text = phantom_tollbooth.get_text()
 
 #this list contains all the words that need to be removed to output the correct top 50 most used words

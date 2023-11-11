@@ -65,7 +65,7 @@ def main():
     print()
     print('The 50 most used words and how many times they are used in this story are: ' )
 
-    #this statement makes the final_list contain only the most used words 
+    #this statement makes the final_list contain only the 50 most used words 
     final_list = sorted(dict_of_words, key=dict_of_words.get, reverse=True)[:50]
     
     #these statements output the most used words and the number of times they occurs in the story
